@@ -1,10 +1,17 @@
 require 'calculator'
 
 describe Calculator do
-  it 'sum method for 2 numbers' do
-    calc = Calculator.new
+  subject(:calc) { described_class.new() }
 
-    result = calc.sum(5, 9)
-    expect(result).to eq(14)
+  context "#sum" do
+    it 'positive numbers' do  
+      result = calc.sum(5, 9)
+      expect(result).to eq(14)
+    end
+
+    it 'negative numbers' do  
+      result = calc.sum(-5, -9)
+      expect(result).to eq(-14)
+    end    
   end
 end
