@@ -1,31 +1,48 @@
 describe "Matchers de Comparação" do
-  it '#equal - Testa se é o mesmo objeto' do
-    x = "ruby"
-    y = "ruby"
-
-    expect(x).not_to equal(y)
-    expect(x).to equal(x)
+  it '>' do
+    expect(5).to be > 1
   end
 
-  it '#be - Testa se é o mesmo objeto' do
-    x = "ruby"
-    y = "ruby"
-     
-    expect(x).not_to be(y)
-    expect(x).to be(x)
+  it '>=' do
+    expect(5).to be >= 2
+    expect(5).to be >= 5
   end
 
-  it '#eql - Testa se é o mesmo valor' do
-    x = "ruby"
-    y = "ruby"
-
-    expect(x).to eql(y)
+  it '<' do
+    expect(5).to be < 10
   end
 
-  it '#eq - Testa se é o mesmo valor' do
-    x = "ruby"
-    y = "ruby"
+  it '<=' do
+    expect(5).to be <= 11
+    expect(5).to be <= 5
+  end
 
-    expect(x).to eq(y)
+  it 'be_between inclusive' do
+    expect(5).to be_between(2, 7).inclusive
+    expect(2).to be_between(2, 7).inclusive
+    expect(7).to be_between(2, 7).inclusive
+  end
+
+  it 'be_between exclusive' do
+    expect(5).to be_between(2, 7).exclusive
+    expect(3).to be_between(2, 7).exclusive
+    expect(6).to be_between(2, 7).exclusive
+  end
+
+  it 'match' do
+    expect("fulano@fulano.com.br").to match(/..@../)
+  end
+
+  it 'start_with' do
+    expect("fulano de tal").to start_with("fulano")
+
+    # funciona com array também
+    expect([1,2,3,4]).to start_with(1)
+  end
+
+  it 'end_with' do
+    expect("fulano de tal").to end_with("tal")
+    # funciona com array também
+    expect([1,2,3,4]).to end_with(4)
   end
 end
