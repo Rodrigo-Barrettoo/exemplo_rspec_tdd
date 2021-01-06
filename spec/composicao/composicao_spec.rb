@@ -3,7 +3,7 @@ describe 'Ruby on Rails' do
 
   it { expect(frutas).to eq('banana').or eq('laranja').or eq('uva') }
 
-  def frutas
-    %w(banana laranja uva).sample
-  end
+  # def frutas
+  #   %w(banana laranja uva).sample
+  # end
 end
