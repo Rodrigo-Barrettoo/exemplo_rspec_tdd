@@ -1,11 +1,26 @@
 require 'pessoa'
 
 describe 'Atributos' do
-  it 'have_attributes' do
-    pessoa = Pessoa.new
-    pessoa.nome = "Barretin"
-    pessoa.idade = 20
+  before(:each) do
+    @pessoa = Pessoa.new
+  end
 
-    expect(pessoa).to  have_attributes(nome: "Barretin", idade: 20)
+  after(:each) do
+    @pessoa.nome = 'Sem nome!'
+    puts ">>> #{@pessoa.inspect}"
+  end
+
+  it 'have_attributes' do
+    @pessoa.nome = "Barretin"
+    @pessoa.idade = 20
+
+    expect(@pessoa).to  have_attributes(nome: "Barretin", idade: 20)
+  end
+
+  it 'have_attributes' do
+    @pessoa.nome = "João"
+    @pessoa.idade = 21
+
+    expect(@pessoa).to  have_attributes(nome: "João", idade: 21)
   end
 end
